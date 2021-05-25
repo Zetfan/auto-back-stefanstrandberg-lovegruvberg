@@ -31,6 +31,42 @@ function createClientRequest(){
 }
 
 
+function getClientRequest(){
+    cy.request({
+        method: 'GET',
+        url: 'http://localhost:3000/api/clients',
+        headers: {
+            "X-User-Auth":JSON.stringify(Cypress.env().loginToken),
+            "Content-Type": "application/json" 
+        }
+    }).then((response => {
+        expect(response.status).to.eq(200)
+        cy.log(JSON.stringify(response.body))
+        cy.log(JSON.stringify(response.body[1]))
+    }))
+}
+
+
+function editClientRequest(){
+    cy.request({
+        method: 'PUT',
+        url: 'http://localhost:3000/api/client/1',
+        headers: {
+            "X-User-Auth":JSON.stringify(Cypress.env().loginToken),
+            "Content-Type": "application/json" 
+        },
+        body:{
+            "id":1,
+            "name":faker.name.firstName(),
+            "email":faker.internet.email(),
+            "telephone":faker.phone.phoneNumber()
+        }
+    }).then((response => {
+        expect(response.status).to.eq(200)
+    }))
+}
+
+
 function deleteClientRequest(idToDelete){
     cy.request({
         method: 'DELETE',
@@ -42,6 +78,24 @@ function deleteClientRequest(idToDelete){
     }).then((response => {
         expect(response.status).to.eq(200)
     }))
+}
+
+
+function createBillRequest(){
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/api/bill/new',
+        headers: {
+            "X-User-Auth":JSON.stringify(Cypress.env().loginToken),
+            "Content-Type": "application/json" 
+        },
+        body:{
+            "value":faker.random.number(),
+            "paid":true,
+        }
+    }).then((response => {
+        expect(response.status).to.eq(200)
+    })) 
 }
 
 
@@ -59,10 +113,16 @@ function performLogout(){
 }
 
 
+
+
+
 //exports
 module.exports = {
     createClientPayload,
     createClientRequest,
+    getClientRequest,
+    editClientRequest,
     deleteClientRequest,
+    createBillRequest,
     performLogout
 }
