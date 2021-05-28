@@ -16,7 +16,7 @@ describe('Login, edit bill, logout', () => {
                 },
                 body: {
                     "value": faker.random.number(),
-                    "paid": true,
+                    "paid": faker.random.boolean(),
                 }
             }).then((response => {
                 expect(response.status).to.eq(200)

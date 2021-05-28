@@ -112,7 +112,6 @@ function createRoomRequest() {
                 "Ensuite",
                 "Sea View",
                 "Penthouse",
-                //".:kebabCase:."
             ])
         }
     }).then((response => {
@@ -120,10 +119,10 @@ function createRoomRequest() {
     }))
 }
 
-function deleteRoomRequest(idToDelete) {
+function deleteRoomRequest() {
     cy.request({
         method: 'DELETE',
-        url: 'http://localhost:3000/api/room/1' + idToDelete,
+        url: 'http://localhost:3000/api/room/1',
         headers: {
             "X-User-Auth": JSON.stringify(Cypress.env().loginToken),
             "Content-Type": "application/json"
@@ -151,6 +150,51 @@ function createBillRequest() {
     }))
 }
 
+function editBillRequest() {
+    cy.request({
+        method: 'PUT',
+        url: 'http://localhost:3000/api/bill/1',
+        headers: {
+            "X-User-Auth": JSON.stringify(Cypress.env().loginToken),
+            "Content-Type": "application/json"
+        },
+        body: {
+            "value": faker.random.number(),
+            "paid": false,
+        }
+    }).then((response => {
+        expect(response.status).to.eq(200)
+    }))
+}
+
+function createReservationRequest() {
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3000/api/reservation/new',
+        headers: {
+            "X-User-Auth": JSON.stringify(Cypress.env().loginToken),
+            "Content-Type": "application/json"
+        },
+        body: {
+            "start": faker.date.past(),
+            "end": faker.date.future(),
+            "client": faker.random.number({
+                'min': 1,
+                'max': 3,
+            }),
+            "room": faker.random.number({
+                'min': 1,
+                'max': 2,
+            }),
+            "bill": faker.random.number({
+                'min': 1,
+                'max': 1,
+            }),
+        }
+    }).then((response => {
+        expect(response.status).to.eq(200)
+    }))
+}
 
 function performLogout() {
     cy.request({
@@ -177,7 +221,9 @@ module.exports = {
     editClientRequest,
     deleteClientRequest,
     createBillRequest,
+    editBillRequest,
     createRoomRequest,
     deleteRoomRequest,
+    createReservationRequest,
     performLogout
 }

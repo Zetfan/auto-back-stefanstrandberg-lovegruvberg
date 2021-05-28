@@ -13,23 +13,22 @@ describe('Test Case: Login, delete room - then - logout', () => {
             // Deleting a room
             cy.request({
                 method: 'DELETE',
-//                url: 'http://localhost:3000/api/rooms/1',
+                url: 'http://localhost:3000/api/room/1',
                 headers: {
-                    "X-User-Auth":JSON.stringify(Cypress.env().loginToken),
-                    "Content-Type": "application/json" 
+                    "X-User-Auth": JSON.stringify(Cypress.env().loginToken),
+                    "Content-Type": "application/json"
                 },
             }).then((response => {
                 expect(response.status).to.eq(200)
             }))
 
-
-          // Perform a logout
+            // Perform a logout
             cy.request({
                 method: 'POST',
                 url: 'http://localhost:3000/api/logout',
                 headers: {
-                    "X-User-Auth":JSON.stringify(Cypress.env().loginToken),
-                    "Content-Type": "application/json" 
+                    "X-User-Auth": JSON.stringify(Cypress.env().loginToken),
+                    "Content-Type": "application/json"
                 },
             }).then((response => {
                 expect(response.status).to.eq(200)

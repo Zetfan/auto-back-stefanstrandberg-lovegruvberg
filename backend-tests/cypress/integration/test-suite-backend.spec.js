@@ -50,4 +50,31 @@ describe('Test suite', () => {
         }))
     })
 
+    it('TC07 edit bill request', () => {
+        cy.authenticate().then((response => {
+            client.editBillRequest()
+            client.performLogout()
+        }))
+    })
+
+    it('TC08 create room request', () => {
+        cy.authenticate().then((response => {
+            client.createRoomRequest()
+            client.performLogout()
+        }))
+    })
+
+    it('TC09 delete room request', () => {
+        cy.authenticate().then((response => {
+            client.deleteRoomRequest()
+            client.performLogout()
+        }))
+    })
+
+    it('TC10 create reservation request', () => {
+        cy.authenticate().then((response => {
+            client.createReservationRequest()
+            client.performLogout()
+        }))
+    })
 })
