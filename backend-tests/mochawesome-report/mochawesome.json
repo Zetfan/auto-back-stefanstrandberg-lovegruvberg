@@ -1,0 +1,195 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-05-28T12:47:01.498Z",
+    "end": "2021-05-28T12:47:05.347Z",
+    "duration": 3849,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bf9ef4a3-e8ca-4522-a545-6689430ddaa1",
+      "title": "",
+      "fullFile": "cypress/integration/test-suite-backend.spec.js",
+      "file": "cypress/integration/test-suite-backend.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+          "title": "Test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC01 login, logout",
+              "fullTitle": "Test suite TC01 login, logout",
+              "timedOut": null,
+              "duration": 854,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticate().then(response => {\n  client.performLogout();\n});",
+              "err": {},
+              "uuid": "ab4cf035-399f-4b16-90c3-e9057e563271",
+              "parentUUID": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC02 create a new client",
+              "fullTitle": "Test suite TC02 create a new client",
+              "timedOut": null,
+              "duration": 608,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticate().then(response => {\n  client.createClientRequest();\n  client.performLogout();\n});",
+              "err": {},
+              "uuid": "5c8c1d3b-a12d-495d-ad7c-9c5a1bb3c341",
+              "parentUUID": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC03 GET clients",
+              "fullTitle": "Test suite TC03 GET clients",
+              "timedOut": null,
+              "duration": 577,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticate().then(response => {\n  client.getClientRequest();\n  client.performLogout();\n});",
+              "err": {},
+              "uuid": "8a553b90-a235-4c5f-8023-408105dbbf3b",
+              "parentUUID": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC04 edit client 1",
+              "fullTitle": "Test suite TC04 edit client 1",
+              "timedOut": null,
+              "duration": 586,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticate().then(response => {\n  client.editClientRequest();\n  client.performLogout();\n});",
+              "err": {},
+              "uuid": "a113cf1f-25bf-4f89-98c2-f58f71fd8b0f",
+              "parentUUID": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC05 delete a client",
+              "fullTitle": "Test suite TC05 delete a client",
+              "timedOut": null,
+              "duration": 601,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticate().then(response => {\n  client.deleteClientRequest(Cypress.env().lastID);\n  client.performLogout();\n});",
+              "err": {},
+              "uuid": "05412c2d-2597-4d51-882d-04f064def61f",
+              "parentUUID": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC06 create a new bill",
+              "fullTitle": "Test suite TC06 create a new bill",
+              "timedOut": null,
+              "duration": 576,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.authenticate().then(response => {\n  client.createBillRequest();\n  client.performLogout();\n});",
+              "err": {},
+              "uuid": "388a7be4-fb80-4581-985d-85751b05b480",
+              "parentUUID": "738c6c55-d7a1-4392-9372-2b16e4f3abc5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab4cf035-399f-4b16-90c3-e9057e563271",
+            "5c8c1d3b-a12d-495d-ad7c-9c5a1bb3c341",
+            "8a553b90-a235-4c5f-8023-408105dbbf3b",
+            "a113cf1f-25bf-4f89-98c2-f58f71fd8b0f",
+            "05412c2d-2597-4d51-882d-04f064def61f",
+            "388a7be4-fb80-4581-985d-85751b05b480"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3802,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.2.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "5.2.0"
+    }
+  }
+}
